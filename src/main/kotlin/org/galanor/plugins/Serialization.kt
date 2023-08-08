@@ -18,15 +18,16 @@ fun Application.configureSerialization() {
         val cacheBaseUrl = "https://galanor.s3.amazonaws.com/caches"
         val clientBaseUrl = "https://galanor.s3.amazonaws.com/clients"
         get("/") {
-            val version = "1.2.5"
-            call.respond(Version(1.25, 1.0, true,
+            val version = "1.2.8"
+            call.respond(Version(1.5, 1.28, 1.0, true,
                 "$cacheBaseUrl/galanor-cache.zip",
                 "$clientBaseUrl/galanor-$version-obfuscated-Live.jar"))
         }
     }
 }
 
-class Version(val clientVersion: Double,
+class Version(val launcherVersion: Double,
+              val clientVersion: Double,
               val cacheVersion: Double,
               val downloadCache: Boolean,
               val cacheDownloadUrl: String,
